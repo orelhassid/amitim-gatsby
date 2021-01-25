@@ -7,7 +7,6 @@ import ThemeProvider from "../../theme/ThemeProvider"
 // import theme from "../../theme/theme"
 
 export default function TopLayout(props) {
-  document.body.dir = "rtl"
   return (
     <React.Fragment>
       <Helmet>
