@@ -5,7 +5,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === "WpPage") {
-    console.log("node onCreateNode", node)
+    // console.log("node onCreateNode", node)
     createNodeField({
       node,
       name: `slug`,
@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allWpPage.edges.forEach(({ node }) => {
-    console.log("result.data.allWpPage.edges", node)
+    // console.log("result.data.allWpPage.edges", node)
     createPage({
       path: slugGenerator(node.title),
       component: path.resolve(`./src/templates/page-template.jsx`),
@@ -47,6 +47,6 @@ function slugGenerator(string) {
   // const english = /^[A-Za-z0-9]*$/;
   const slug = string.toLowerCase().replace(/-+/g, "").replace(/\s+/g, "-")
 
-  console.log("slug", (slug, string))
+  // console.log("slug", (slug, string))
   return slug
 }

@@ -73,10 +73,18 @@ const theme = createMuiTheme({
           // fontFamily: FON,
         },
         "@font-face": [regularFont],
-        body: {},
         input: {
           border: "none",
           outline: "none",
+        },
+        h1: {
+          fontSize: "5.4rem",
+          color: PRIMARY,
+          lineHeight: 1,
+        },
+        main: {
+          direction: "rtl",
+          textAlign: "right",
         },
       },
     },
