@@ -42,6 +42,7 @@ module.exports = {
      *
      * See https://www.gatsbyjs.org/packages/gatsby-source-filesystem/ for more info
      */
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

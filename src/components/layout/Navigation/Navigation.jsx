@@ -1,27 +1,40 @@
 import React from "react"
 
-import { Box, Button, useMediaQuery, useTheme } from "@material-ui/core"
+import { Button } from "@material-ui/core"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import { Link } from "gatsby"
-
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { slugGenerator } from "../../../utils/string"
 export default function Navigation(props) {
-  console.log("props", props)
+  const data = useStaticQuery(graphql`
+    query fetchMenuItems {
+      allWpMenuItem {
+        edges {
+          node {
+            id
+            label
+            url
+          }
+        }
+      }
+    }
+  `)
+  const items = data.allWpMenuItem.edges
+
   return (
     <AppBar position="sticky" component="nav">
       <Toolbar>
-        <Link href="/">
-          <Button color="inherit" variant="text">
-            Home Page
+        {items.map(({ node: item }) => (
+          <Button
+            key={item.id}
+            color="inherit"
+            variant="text"
+            component={Link}
+            to={`/${slugGenerator(item.label)}`}
+          >
+            {item.label}
           </Button>
-        </Link>
-        <Link to="/">Home Page</Link>
-        {/* <Link href="/posts/hello-world">
-          <Button color="inherit" variant="text">
-            Hello world
-          </Button>
-        </Link> */}
+        ))}
       </Toolbar>
     </AppBar>
   )

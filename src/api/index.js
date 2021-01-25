@@ -1,25 +1,24 @@
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
-export async function fetchMenu() {
-  const { data } = await graphql(`
-    query MyQuery {
-      menu(id: "dGVybToz") {
-        id
-        menuItems {
-          edges {
-            node {
-              id
-              label
-              path
-              url
-              target
-              title
-            }
-          }
-        }
-        slug
-      }
-    }
-  `)
-  return data
+export function fetchMenu() {
+  // return graphql`
+  //   query MyQuery {
+  //     allWpMenu {
+  //       edges {
+  //         node {
+  //           id
+  //           slug
+  //           menuItems {
+  //             nodes {
+  //               id
+  //               url
+  //               label
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `
+  // return data
 }

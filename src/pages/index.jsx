@@ -1,13 +1,33 @@
 import React from "react"
-import { fetchMenu } from "../api"
+// import { graphql } from "gatsby"
+// import { fetchMenu } from "../api"
+import { Layout } from "../components/layout"
 
 export default function index(props) {
   console.log("props", props)
   return (
-    <div>
+    <Layout>
       <h1>Home Page</h1>
-    </div>
+    </Layout>
   )
 }
 
-export const pageQuery = fetchMenu()
+// export const query = graphql`
+//   query fetchMenu {
+//     allWpMenu {
+//       edges {
+//         node {
+//           id
+//           slug
+//           menuItems {
+//             nodes {
+//               id
+//               url
+//               label
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
